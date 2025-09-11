@@ -18,57 +18,57 @@ Simple, educational BitTorrent client written in Java. TorrentX can download fil
 brew tap kpraveenkumar19/torrentx
 brew install torrentx
 ```
+After installation, the commands `download` and `magnet_download` should be available in your shell.
 
-#### From source (macOS/Linux)
-Prerequisites:
-- Java 17+ (JDK)
-- Maven 3.8+
+#### Build from source (macOS/Linux)
+- Prerequisites:
+  - Java 17+ (JDK)
+  - Maven 3.8+
 
-Clone/build/run:
 ```bash
 git clone <your-repo-url>.git
 cd TorrentX
-
-# Option 1: Use the helper script
-./your_program.sh --help  # builds and runs Main with your args
-
-# Option 2: Build and run via Maven/Java
 mvn -q -DskipTests package
+```
+
+Run options after build:
+```bash
+# Helper script (builds if needed, then runs)
+./your_program.sh <command> [args]
+
+# Directly with compiled classes
 java -cp target/classes Main <command> [args]
 
-# Option 3: Run from the JAR (already produced by mvn package)
+# Using the packaged JAR
 java -cp target/torrent-x-1.0.0.jar Main <command> [args]
 ```
 
 ### Usage
 
-TorrentX expects outputs to be written to your `~/Downloads` directory. Place your `.torrent` file in `~/Downloads`, or use a magnet link.
+TorrentX writes downloaded files to your `~/Downloads` directory. For `.torrent` downloads, place the `.torrent` file in `~/Downloads`.
 
-Commands:
-```bash
-# Download using a .torrent file (file must be in ~/Downloads)
-download <torrent_file>
-
-# Download using a magnet link
-magnet_download <magnet_link>
+#### Commands
+```text
+download <torrent_file>        # .torrent file must be in ~/Downloads
+magnet_download <magnet_link>  # full magnet URI including xt and (optionally) tr
 ```
 
-Examples:
+#### Quick start
 ```bash
-# Homebrew install (macOS)
-download <torrent file>
-magnet_download <magnet link>
+# Using Homebrew
+download sample.torrent
+magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 
-# From source via helper script
-./your_program.sh download ubuntu.torrent
+# Using source build (helper script)
+./your_program.sh download sample.torrent
 ./your_program.sh magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 
-# Direct with Java (after mvn package)
-java -cp target/classes Main download ubuntu.torrent
+# Using Java directly
+java -cp target/classes Main download sample.torrent
 java -cp target/classes Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ```
 
-Behavioral notes and limitations:
+Notes and limitations:
 - Torrent file path resolution is `~/Downloads/<torrent_file>`.
 - The client selects the first available peer from the tracker’s compact peer list.
 - One peer connection at a time; no swarm management.
