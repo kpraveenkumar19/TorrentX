@@ -36,11 +36,6 @@ Run options after build:
 # Helper script (builds if needed, then runs)
 ./your_program.sh <command> [args]
 
-# Directly with compiled classes
-java -cp target/classes Main <command> [args]
-
-# Using the packaged JAR
-java -cp target/torrent-x-1.0.0.jar Main <command> [args]
 ```
 
 ### Usage
@@ -63,9 +58,6 @@ magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ./your_program.sh download sample.torrent
 ./your_program.sh magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 
-# Using Java directly
-java -cp target/classes Main download sample.torrent
-java -cp target/classes Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ```
 
 Notes and limitations:
@@ -88,11 +80,7 @@ Notes and limitations:
 - [BEP 3: The BitTorrent Protocol Specification](https://www.bittorrent.org/beps/bep_0003.html)
 - [BEP 9: Extension for Peers to Send Metadata Files](https://www.bittorrent.org/beps/bep_0009.html)
 - [BEP 10: Extension Protocol](https://www.bittorrent.org/beps/bep_0010.html)
-- [BEP 0: The BEP Process (index of all BEPs)](https://www.bittorrent.org/beps/bep_0000.html)
-- [BEP 23: Tracker Returns Compact Peer Lists](https://www.bittorrent.org/beps/bep_0023.html)
 - [Magnet URI scheme (overview)](https://en.wikipedia.org/wiki/Magnet_URI_scheme)
-- [Homebrew (package manager)](https://brew.sh/)
-- [Apache Maven](https://maven.apache.org/)
 
 ### Contributing
 Contributions are welcome! For bug fixes and small improvements:
