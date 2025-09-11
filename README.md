@@ -20,24 +20,6 @@ brew install torrentx
 ```
 After installation, the commands `download` and `magnet_download` should be available in your shell.
 
-#### Build from source (macOS/Linux)
-- Prerequisites:
-  - Java 17+ (JDK)
-  - Maven 3.8+
-
-```bash
-git clone <your-repo-url>.git
-cd TorrentX
-mvn -q -DskipTests package
-```
-
-Run options after build:
-```bash
-# Helper script (builds if needed, then runs)
-./your_program.sh <command> [args]
-
-```
-
 ### Usage
 
 TorrentX writes downloaded files to your `~/Downloads` directory. For `.torrent` downloads, place the `.torrent` file in `~/Downloads`.
@@ -48,16 +30,10 @@ download <torrent_file>        # .torrent file must be in ~/Downloads
 magnet_download <magnet_link>  # full magnet URI including xt and (optionally) tr
 ```
 
-#### Quick start
+#### Quick start (Homebrew)
 ```bash
-# Using Homebrew
 download sample.torrent
 magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
-
-# Using source build (helper script)
-./your_program.sh download sample.torrent
-./your_program.sh magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
-
 ```
 
 Notes and limitations:
