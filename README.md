@@ -74,6 +74,10 @@ Behavioral notes and limitations:
 - One peer connection at a time; no swarm management.
 - Single-file torrents are supported; multi-file mode is not yet implemented.
 
+### Sample files for testing
+- `torrent_files/sample.torrent`: A sample `.torrent` file for quick testing.
+- `torrent_files/magnet_links.txt`: Magnet links mapped to filenames for testing magnet downloads.
+
 ### Technologies Used
 - **Language**: Java (standard library)
 - **Build**: Apache Maven
