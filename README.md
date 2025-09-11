@@ -88,6 +88,11 @@ Notes and limitations:
 - [BEP 3: The BitTorrent Protocol Specification](https://www.bittorrent.org/beps/bep_0003.html)
 - [BEP 9: Extension for Peers to Send Metadata Files](https://www.bittorrent.org/beps/bep_0009.html)
 - [BEP 10: Extension Protocol](https://www.bittorrent.org/beps/bep_0010.html)
+- [BEP 0: The BEP Process (index of all BEPs)](https://www.bittorrent.org/beps/bep_0000.html)
+- [BEP 23: Tracker Returns Compact Peer Lists](https://www.bittorrent.org/beps/bep_0023.html)
+- [Magnet URI scheme (overview)](https://en.wikipedia.org/wiki/Magnet_URI_scheme)
+- [Homebrew (package manager)](https://brew.sh/)
+- [Apache Maven](https://maven.apache.org/)
 
 ### Contributing
 Contributions are welcome! For bug fixes and small improvements:
