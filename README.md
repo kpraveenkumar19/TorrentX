@@ -84,6 +84,11 @@ Behavioral notes and limitations:
 - **Networking**: `java.net.http.HttpClient`, `Socket`
 - **Protocol**: BitTorrent wire protocol, extension protocol (`ut_metadata`), bencode
 
+### Resources
+- [BEP 3: The BitTorrent Protocol Specification](https://www.bittorrent.org/beps/bep_0003.html)
+- [BEP 9: Extension for Peers to Send Metadata Files](https://www.bittorrent.org/beps/bep_0009.html)
+- [BEP 10: Extension Protocol](https://www.bittorrent.org/beps/bep_0010.html)
+
 ### Contributing
 Contributions are welcome! For bug fixes and small improvements:
 1. Fork the repo and create a feature branch.
