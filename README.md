@@ -1,6 +1,6 @@
 ## TorrentX
 
-Simple, educational BitTorrent client written in Java 17. TorrentX can download files from a `.torrent` file or a magnet link. It implements a minimal subset of the BitTorrent protocol end-to-end: parsing bencode, tracker announce, peer handshake, interest/unchoke, block requests, and piece hash verification.
+Simple, educational BitTorrent client written in Java. TorrentX can download files from a `.torrent` file or a magnet link. It implements a minimal subset of the BitTorrent protocol end-to-end: parsing bencode, tracker announce, peer handshake, interest/unchoke, block requests, and piece hash verification.
 
 ### Features
 - **.torrent download**: Parse bencoded metadata, announce to tracker, connect to a peer, request blocks, and write the final file to your `~/Downloads` directory.
@@ -75,7 +75,7 @@ Behavioral notes and limitations:
 - Single-file torrents are supported; multi-file mode is not yet implemented.
 
 ### Technologies Used
-- **Language**: Java 17 (standard library)
+- **Language**: Java (standard library)
 - **Build**: Apache Maven
 - **Networking**: `java.net.http.HttpClient`, `Socket`
 - **Protocol**: BitTorrent wire protocol, extension protocol (`ut_metadata`), bencode
