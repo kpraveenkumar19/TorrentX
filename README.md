@@ -20,6 +20,14 @@ brew install torrentx
 ```
 After installation, the commands `download` and `magnet_download` should be available in your shell.
 
+#### Alternative: Standalone JAR
+If you prefer not to use Homebrew:
+```bash
+# Prerequisites: Java 17+ and Maven 3.8+
+mvn -q -DskipTests package
+java -cp target/torrent-x-1.0.0.jar Main <command> [args]
+```
+
 ### Usage
 
 TorrentX writes downloaded files to your `~/Downloads` directory. For `.torrent` downloads, place the `.torrent` file in `~/Downloads`.
