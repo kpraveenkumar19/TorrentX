@@ -1,7 +1,3 @@
----
-title: Overview
----
-
 # TorrentX
 
 TorrentX is a simple, educational BitTorrent client written in Java. It can download files from a `.torrent` file or a magnet link, implementing a minimal subset of the BitTorrent protocol end-to-end: bencode parsing, tracker announce, peer handshake, interest/unchoke, block requests, and piece hash verification.
