@@ -24,8 +24,9 @@ theme:
     repo: fontawesome/brands/github
 nav:
   - Overview: index.md
-  - Stages: stages.md
-  - Installation & Usage: install.md
+  - Guide:
+      - Stages: stages.md
+      - Installation & Usage: install.md
 markdown_extensions:
   - admonition
   - toc:
