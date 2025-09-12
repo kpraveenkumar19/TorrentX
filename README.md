@@ -20,7 +20,11 @@ brew install torrentx
 download <torrent_file>
 magnet_download <magnet_link>
 ```
-
+Quick start (Homebrew):
+```bash
+download sample.torrent
+magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
+```
 
 #### Option B (alternative): Standalone JAR
 1. Build (requires Java 17+ and Maven 3.8+):
@@ -32,22 +36,16 @@ mvn -q -DskipTests package
 java -cp target/torrent-x-1.0.0.jar Main <command> [args]
 ```
 
-Before you start:
-- Downloads are saved to `~/Downloads`.
-- For `.torrent` downloads, the `.torrent` file must be located at `~/Downloads/<file>.torrent`.
-- You can copy the sample to `~/Downloads` with: `cp torrent_files/sample.torrent ~/Downloads/`.
-
-Quick start (Homebrew):
-```bash
-download sample.torrent
-magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
-```
-
 Quick start (JAR):
 ```bash
 java -cp target/torrent-x-1.0.0.jar Main download sample.torrent
 java -cp target/torrent-x-1.0.0.jar Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ```
+
+Before you start:
+- Downloads are saved to `~/Downloads`.
+- For `.torrent` downloads, the `.torrent` file must be located at `~/Downloads/<file>.torrent`.
+- You can copy the sample to `~/Downloads` with: `cp torrent_files/sample.torrent ~/Downloads/`.
 
 Commands reference:
 ```text
