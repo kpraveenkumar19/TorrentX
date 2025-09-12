@@ -11,12 +11,14 @@ Simple, educational [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) clien
 
 > Note: TorrentX is intentionally minimal for learning and demonstration. It does not yet implement advanced peer management, DHT, multiple trackers, rate limiting, or multi-file torrents.
 
-### Installation
+### Installation & Usage
 
 #### Option A (recommended): Homebrew
 ```bash
 brew tap kpraveenkumar19/torrentx
 brew install torrentx
+download <torrent_file>
+magnet_download <magnet_link>
 ```
 
 
@@ -29,8 +31,6 @@ mvn -q -DskipTests package
 ```bash
 java -cp target/torrent-x-1.0.0.jar Main <command> [args]
 ```
-
-### Usage
 
 Before you start:
 - Downloads are saved to `~/Downloads`.
