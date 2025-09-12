@@ -28,10 +28,6 @@ mvn -q -DskipTests package
 2. Run using the packaged JAR:
 ```bash
 java -cp target/torrent-x-1.0.0.jar Main <command> [args]
-
-# Examples
-java -cp target/torrent-x-1.0.0.jar Main download sample.torrent
-java -cp target/torrent-x-1.0.0.jar Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ```
 
 ### Usage
