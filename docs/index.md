@@ -26,7 +26,7 @@ TorrentX is a simple, educational BitTorrent client written in Java. It demonstr
 
 ### Quick links
 
-- [Stages walkthrough](stages/)
-- [Installation & Usage](install/)
+- [Stages walkthrough](stages.md)
+- [Installation & Usage](install.md)
 
 
