@@ -1,0 +1,41 @@
+site_name: TorrentX
+site_description: Minimal educational BitTorrent client in Java
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - toc.integrate
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  icon:
+    repo: fontawesome/brands/github
+nav:
+  - Overview: index.md
+  - Stages: stages.md
+  - Installation & Usage: install.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
+plugins:
+  - search
+  - mermaid2
+extra:
+  generator: false
+
