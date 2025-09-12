@@ -26,6 +26,10 @@ If you prefer not to use Homebrew:
 # Prerequisites: Java 17+ and Maven 3.8+
 mvn -q -DskipTests package
 java -cp target/torrent-x-1.0.0.jar Main <command> [args]
+
+# Examples
+java -cp target/torrent-x-1.0.0.jar Main download sample.torrent
+java -cp target/torrent-x-1.0.0.jar Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ```
 
 ### Usage
