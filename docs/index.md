@@ -1,32 +1,24 @@
-## TorrentX
+---
+title: Overview
+---
 
-TorrentX is a simple, educational BitTorrent client written in Java. It demonstrates an end-to-end, minimal implementation of the BitTorrent protocol: bencode parsing, tracker announce, peer handshake, interest/unchoke, block requests, and piece hash verification. It supports both .torrent files and magnet links via the extension protocol (ut_metadata).
+# TorrentX
 
-### Why it exists
+TorrentX is a simple, educational BitTorrent client written in Java. It can download files from a `.torrent` file or a magnet link, implementing a minimal subset of the BitTorrent protocol end-to-end: bencode parsing, tracker announce, peer handshake, interest/unchoke, block requests, and piece hash verification.
 
-- To provide a concise, readable reference for how BitTorrent actually works on the wire
-- To focus on learning: single peer, single-file torrents, and the clearest possible code
+> TorrentX is intentionally minimal for learning and demonstration. It does not implement advanced peer management, DHT, multiple trackers, rate limiting, or multi-file torrents.
 
-### What it does
+## Goals
 
-- Parses a .torrent file, computes the info hash, announces to a tracker, connects to a peer, requests blocks, verifies piece hashes, and writes the result to `~/Downloads`
-- For magnet links, uses the extension protocol to obtain metadata (the info dictionary) before downloading pieces
+- Provide a clean, readable reference implementation of core BitTorrent flows
+- Focus on clarity with a single peer connection at a time
+- Demonstrate both metadata-first (`.torrent`) and magnet-based (`ut_metadata`) workflows
 
-### Goals
+## Features
 
-- Keep the code small and approachable using only Java standard libraries
-- Highlight the core protocol primitives and message flows
-- Provide a step-by-step documentation of stages from decoding bencode through downloading the full file
+- .torrent download: parse metadata, announce to tracker, connect to a peer, request blocks, verify and write the output file
+- Magnet link download: use the extension protocol (`ut_metadata`) to fetch metadata from a peer before downloading pieces
 
-### Scope and limitations
-
-- One peer connection at a time (no swarm management)
-- Single-file torrents only
-- No DHT, multi-tracker rotation, rate limiting, or advanced peer strategies
-
-### Quick links
-
-- [Stages walkthrough](stages.md)
-- [Installation & Usage](install.md)
+See the left sidebar to navigate stages for both `.torrent` and magnet workflows.
 
 

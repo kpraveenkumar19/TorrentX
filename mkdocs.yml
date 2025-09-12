@@ -1,44 +1,47 @@
 site_name: TorrentX
-site_description: Minimal educational BitTorrent client in Java
-site_url: https://kpraveenkumar19.github.io/TorrentX/
-repo_url: https://github.com/kpraveenkumar19/TorrentX
+site_description: A minimal BitTorrent client in Java
+site_url: https://<your-username>.github.io/TorrentX/
+repo_url: https://github.com/<your-username>/TorrentX
+site_dir: site
+docs_dir: docs
+
 theme:
   name: material
+  language: en
   features:
+    - navigation.instant
     - navigation.sections
-    - navigation.indexes
-    - toc.integrate
-    - content.code.copy
     - navigation.expand
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-  icon:
-    repo: fontawesome/brands/github
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+    - content.tabs.link
+
 nav:
   - Overview: index.md
-  - Guide:
-      - Stages: stages.md
-      - Installation & Usage: install.md
+  - Installation & Usage: install.md
+  - Part 1: Using Torrent File:
+      - Stage 1: part-1/stage-1.md
+      - Stage 2: part-1/stage-2.md
+      - Stage 3: part-1/stage-3.md
+      - Stage 4: part-1/stage-4.md
+  - Part 2: Using Magnet Links:
+      - Stage 1: part-2/stage-1.md
+      - Stage 2: part-2/stage-2.md
+      - Stage 3: part-2/stage-3.md
+      - Stage 4: part-2/stage-4.md
+
+plugins:
+  - search
+
 markdown_extensions:
   - admonition
   - toc:
       permalink: true
-  - pymdownx.superfences
-  - pymdownx.highlight
-  - pymdownx.details
-  - pymdownx.inlinehilite
-  - pymdownx.tabbed
-plugins:
-  - search
-  - mermaid2
-extra:
-  generator: false
+  - tables
+  - footnotes
+  - codehilite
+  - attr_list
+  - def_list
+
 
