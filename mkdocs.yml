@@ -5,11 +5,11 @@ repo_url: https://github.com/kpraveenkumar19/TorrentX
 theme:
   name: material
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.indexes
     - toc.integrate
     - content.code.copy
+    - navigation.expand
   palette:
     - scheme: default
       primary: indigo
