@@ -1,8 +1,8 @@
 site_name: TorrentX
 site_description: Minimal educational BitTorrent client in Java - docs and guides
-site_url: 
-repo_url: https://github.com/
-repo_name: GitHub
+site_url: https://kpraveenkumar19.github.io/TorrentX/
+repo_url: https://github.com/kpraveenkumar19/TorrentX
+repo_name: kpraveenkumar19/TorrentX
 
 theme:
   name: material
