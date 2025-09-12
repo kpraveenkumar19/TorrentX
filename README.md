@@ -13,18 +13,20 @@ Simple, educational [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) clien
 
 ### Installation
 
-#### Homebrew (macOS)
+#### Option A (recommended): Homebrew
 ```bash
 brew tap kpraveenkumar19/torrentx
 brew install torrentx
 ```
-After installation, the commands `download` and `magnet_download` should be available in your shell.
 
-#### Alternative: Standalone JAR
-If you prefer not to use Homebrew:
+
+#### Option B (alternative): Standalone JAR
+1. Build (requires Java 17+ and Maven 3.8+):
 ```bash
-# Prerequisites: Java 17+ and Maven 3.8+
 mvn -q -DskipTests package
+```
+2. Run using the packaged JAR:
+```bash
 java -cp target/torrent-x-1.0.0.jar Main <command> [args]
 
 # Examples
@@ -34,18 +36,30 @@ java -cp target/torrent-x-1.0.0.jar Main magnet_download "magnet:?xt=urn:btih:<i
 
 ### Usage
 
-TorrentX writes downloaded files to your `~/Downloads` directory. For `.torrent` downloads, place the `.torrent` file in `~/Downloads`.
+Before you start:
+- Downloads are saved to `~/Downloads`.
+- For `.torrent` downloads, the `.torrent` file must be located at `~/Downloads/<file>.torrent`.
+- You can copy the sample to `~/Downloads` with: `cp torrent_files/sample.torrent ~/Downloads/`.
 
-#### Commands
-```text
-download <torrent_file>        # .torrent file must be in ~/Downloads
-magnet_download <magnet_link>  # full magnet URI including xt and (optionally) tr
-```
-
-#### Quick start (Homebrew)
+Quick start (Homebrew):
 ```bash
 download sample.torrent
 magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
+```
+
+Quick start (JAR):
+```bash
+java -cp target/torrent-x-1.0.0.jar Main download sample.torrent
+java -cp target/torrent-x-1.0.0.jar Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
+```
+
+Commands reference:
+```text
+download <torrent_file>
+  - <torrent_file>: Name of the .torrent file in ~/Downloads (e.g., sample.torrent)
+
+magnet_download <magnet_link>
+  - <magnet_link>: Full magnet URI, including xt and optionally tr parameters
 ```
 
 Notes and limitations:
