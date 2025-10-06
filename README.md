@@ -6,8 +6,6 @@ Minimal BitTorrent CLI client written in Java. TorrentX implements the core of t
 
 - [Features](#features)
 - [Installation](#installation)
-  - [macOS (Homebrew)](#macos-homebrew)
-  - [Windows (Clone + Build)](#windows-clone--build)
 - [Usage](#usage)
   - [download <torrent_file>](#download-torrent_file)
   - [magnet_download <magnet_link>](#magnet_download-magnet_link)
@@ -20,9 +18,6 @@ Minimal BitTorrent CLI client written in Java. TorrentX implements the core of t
 
 - Download files via BitTorrent protocol
 - Magnet link support
-- HTTP tracker announce with compact peer list
-- Single peer download flow with piece pipelining
-- SHA‑1 verification of each piece
 - Saves output to your system `Downloads` directory
 
 ## Installation
