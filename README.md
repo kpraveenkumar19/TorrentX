@@ -1,6 +1,6 @@
 # TorrentX
 
-Minimal BitTorrent CLI client written in Java. TorrentX implements the core of the BitTorrent protocol which supports magnet links and can download a single-file torrent from an HTTP tracker and a single peer, which then saves the result to your Downloads folder.
+Minimal BitTorrent CLI client written in Java. TorrentX implements the core of the BitTorrent protocol which supports magnet links and downloads using a single-file torrent which then saves the result to your Downloads folder.
 
 ## Table of Contents
 
@@ -16,8 +16,8 @@ Minimal BitTorrent CLI client written in Java. TorrentX implements the core of t
 
 ## Features
 
-- Download files via BitTorrent protocol
-- Magnet link support
+- Downloads using a Torrent File .
+- Downloads via a magnet link.
 - Saves output to your system `Downloads` directory
 
 ## Installation
@@ -60,7 +60,7 @@ Examples:
 magnet_download "magnet:?xt=urn:btih:<infohash>&tr=https%3A%2F%2Ftracker.example.org%2Fannounce"
 ```
 
-### Notes and Limitations
+### Limitations
 
 - Single-file torrents only (multi-file torrents are not supported)
 - HTTP trackers only (no UDP tracker)
