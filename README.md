@@ -1,96 +1,94 @@
-## TorrentX
+# TorrentX
 
-Simple, educational [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) client written in Java. TorrentX can download files from a [`.torrent` file](https://en.wikipedia.org/wiki/Torrent_file) or a [magnet link](https://en.wikipedia.org/wiki/Magnet_URI_scheme). It implements a minimal subset of the BitTorrent protocol end-to-end: parsing bencode, tracker announce, peer handshake, interest/unchoke, block requests, and piece hash verification.
+Minimal BitTorrent CLI client written in Java. TorrentX implements the core of the BitTorrent protocol which supports magnet links and can download a single-file torrent from an HTTP tracker and a single peer, which then saves the result to your Downloads folder.
 
-### Features
-- **.torrent download**: Parse bencoded metadata, announce to tracker, connect to a peer, request blocks, and write the final file to your `~/Downloads` directory.
-- **Magnet link download**: Use the extension protocol (`ut_metadata`) to fetch metadata from a peer before downloading pieces.
-- **Tracker** query: Compact peer list request/response and simple peer selection ([what is a tracker?](https://en.wikipedia.org/wiki/BitTorrent_tracker)).
-- **Piece integrity**: Verifies every piece with SHA‑1 against the info dictionary.
-- **Single peer flow**: Focuses on clarity and learning with one peer connection at a time.
+## Table of Contents
 
-> Note: TorrentX is intentionally minimal for learning and demonstration. It does not yet implement advanced peer management, DHT, multiple trackers, rate limiting, or multi-file torrents.
+- [Features](#features)
+- [Installation](#installation)
+  - [macOS (Homebrew)](#macos-homebrew)
+  - [Windows (Clone + Build)](#windows-clone--build)
+- [Usage](#usage)
+  - [download <torrent_file>](#download-torrent_file)
+  - [magnet_download <magnet_link>](#magnet_download-magnet_link)
+  - [Notes and Limitations](#notes-and-limitations)
+- [Resources](#resources)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Installation & Usage
+## Features
 
-#### Option A (recommended): Homebrew
+- Download files via BitTorrent protocol
+- Magnet link support
+- HTTP tracker announce with compact peer list
+- Single peer download flow with piece pipelining
+- SHA‑1 verification of each piece
+- Saves output to your system `Downloads` directory
+
+## Installation
+
 ```bash
 brew tap kpraveenkumar19/torrentx
 brew install torrentx
+```
+
+## Usage
+
+After installing (via Homebrew) the commands are available globally:
+
+```bash
 download <torrent_file>
 magnet_download <magnet_link>
 ```
-Quick start (Homebrew):
+
+### `download <torrent_file>`
+
+Downloads a single-file torrent referenced by `<torrent_file>`.
+
+Examples:
+
 ```bash
 download sample.torrent
-magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
 ```
 
-#### Option B (alternative): Standalone JAR
-1. Build (requires Java 17+ and Maven 3.8+):
+Important:
+- Place the `.torrent` file inside your `~/Downloads` folder. The client reads the torrent file from `Downloads` by name, e.g. `~/Downloads/sample.torrent`.
+- The downloaded content will be saved to `~/Downloads/<name>` where `<name>` is taken from the torrent's `info.name`.
+
+### `magnet_download <magnet_link>`
+
+Downloads via a magnet link. A tracker URL must be present in the magnet (the `tr` parameter), and the infohash must be provided via `xt=urn:btih:<infohash>`.
+
+Examples:
+
 ```bash
-mvn -q -DskipTests package
-```
-2. Run using the packaged JAR:
-```bash
-java -cp target/torrent-x-1.0.0.jar Main <command> [args]
+magnet_download "magnet:?xt=urn:btih:<infohash>&tr=https%3A%2F%2Ftracker.example.org%2Fannounce"
 ```
 
-Quick start (JAR):
-```bash
-java -cp target/torrent-x-1.0.0.jar Main download sample.torrent
-java -cp target/torrent-x-1.0.0.jar Main magnet_download "magnet:?xt=urn:btih:<infohash>&tr=<tracker>"
-```
+### Notes and Limitations
 
-Before you start:
-- Downloads are saved to `~/Downloads`.
-- For `.torrent` downloads, the `.torrent` file must be located at `~/Downloads/<file>.torrent`.
-- You can copy the sample to `~/Downloads` with: `cp torrent_files/sample.torrent ~/Downloads/`.
+- Single-file torrents only (multi-file torrents are not supported)
+- HTTP trackers only (no UDP tracker)
+- Connects to the first peer from the tracker compact list; no peer rotation or retry strategy
+- Expects the `.torrent` file to reside in `~/Downloads` and writes output there
 
-Commands reference:
-```text
-download <torrent_file>
-  - <torrent_file>: Name of the .torrent file in ~/Downloads (e.g., sample.torrent)
+## Resources
 
-magnet_download <magnet_link>
-  - <magnet_link>: Full magnet URI, including xt and optionally tr parameters
-```
-
-Notes and limitations:
-- Torrent file path resolution is `~/Downloads/<torrent_file>`.
-- The client selects the first available peer from the tracker’s compact peer list.
-- One peer connection at a time; no swarm management.
-- Single-file torrents are supported; multi-file mode is not yet implemented.
-
-### Sample files for testing
-- `torrent_files/sample.torrent`: A sample `.torrent` file for quick testing.
-- `torrent_files/magnet_links.txt`: Magnet links mapped to filenames for testing magnet downloads.
-
-### Technologies Used
-- **Language**: Java (standard library)
-- **Build**: Apache Maven
-- **Networking**: `java.net.http.HttpClient`, `Socket`
-- **Protocol**: BitTorrent wire protocol, extension protocol (`ut_metadata`), bencode
-
-### Resources
 - [BEP 3: The BitTorrent Protocol Specification](https://www.bittorrent.org/beps/bep_0003.html)
 - [BEP 9: Extension for Peers to Send Metadata Files](https://www.bittorrent.org/beps/bep_0009.html)
 - [BEP 10: Extension Protocol](https://www.bittorrent.org/beps/bep_0010.html)
 - [Magnet URI scheme (overview)](https://en.wikipedia.org/wiki/Magnet_URI_scheme)
 
-### Contributing
-Contributions are welcome! For bug fixes and small improvements:
-1. Fork the repo and create a feature branch.
-2. Make your change with clear commit messages.
-3. Run a local build and basic manual tests.
-4. Open a pull request describing the change and rationale.
+## Contributing
 
-For larger features (e.g., multi-peer, DHT, multi-file support), please open an issue first to discuss design/approach.
+Contributions are welcome! To propose changes:
 
-### License
-No license file is currently included. If you intend to use or redistribute TorrentX, please open an issue to clarify licensing, or add a `LICENSE` file (e.g., MIT or Apache-2.0) to this repository.
+1. Fork the repository and create a feature branch
+2. Make your changes
+3. Open a Pull Request with a clear description and examples
 
-### Disclaimer
-Use responsibly and in accordance with your local laws. Download only content you have the right to access.
-
+Guidelines:
+- Keep the implementation minimal and readable
+- Prefer small, focused changes with clear commit messages
+- Document user-facing behavior in this README when adding features
 
